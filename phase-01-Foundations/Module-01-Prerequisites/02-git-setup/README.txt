@@ -49,3 +49,4 @@ git status
 git branch
 
 git add .
+git commit -m "feature: react initial setup"
