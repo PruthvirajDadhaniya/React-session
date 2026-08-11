@@ -1,3 +1,6 @@
+// Babel Compailer = JSX -> JS
+// JSX = JAVASCRIPT AND XML 
+
 function JsxBasics(){
     const fname = "John Doe";
     const year = 2026;
