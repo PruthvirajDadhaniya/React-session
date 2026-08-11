@@ -21,6 +21,16 @@ const themeColors = ["#FFFFFF", "#000000", "#FF0000"];
 // Expected output: "John" "React Developer"
 
 // Your code here:
+const userProfile = {
+  name: "John",
+  role: "React Developer",
+}
+
+const { name, role } = userProfile;
+
+console.log(name); // Expected output: "John"
+console.log(role); // Expected output: "React Developer"
+
 
 // ==========================================
 // Q2: Object Destructuring (Renaming & Defaults)
@@ -34,6 +44,12 @@ const themeColors = ["#FFFFFF", "#000000", "#FF0000"];
 // Expected output: 101 "Online"
 
 // Your code here:
+const user = {
+  id: 101,
+}
+const { id: userId, status = "Online" } = user;
+console.log(userId); // Expected output: 101
+console.log(status); // Expected output: "Online"
 
 // ==========================================
 // Q3: Array Destructuring (The useState way)
@@ -47,6 +63,11 @@ const themeColors = ["#FFFFFF", "#000000", "#FF0000"];
 // Expected output: "#FFFFFF" "#000000"
 
 // Your code here:
+const themeColors = ["#FFFFFF", "#000000", "#FF0000"];
+const [primaryColor, secondaryColor] = themeColors;
+console.log(primaryColor); // Expected output: "#FFFFFF"
+console.log(secondaryColor); // Expected output: "#000000"
+
 
 // ==========================================
 // Q4: Spread Operator (...) for Objects
@@ -61,6 +82,8 @@ const themeColors = ["#FFFFFF", "#000000", "#FF0000"];
 // Expected output: { theme: 'dark', notifications: true, language: 'en' }
 
 // Your code here:
+let finalSettings = { ...defaultSettings, ...userSettings };
+console.log(finalSettings); // Expected output: { theme: 'dark', notifications: true, language: 'en' }
 
 // ==========================================
 // Q5: Spread Operator (...) for Arrays
@@ -75,6 +98,8 @@ const themeColors = ["#FFFFFF", "#000000", "#FF0000"];
 // Expected output: [ 'TypeScript', 'JavaScript', 'React', 'CSS' ]
 
 // Your code here:
+let updatedSkills = ["TypeScript", ...userProfile.skills];
+console.log(updatedSkills); // Expected output: [ 'TypeScript', 'JavaScript', 'React', 'CSS' ]
 
 // ==========================================
 // Q6: Rest Operator (...) in Destructuring
@@ -88,6 +113,8 @@ const themeColors = ["#FFFFFF", "#000000", "#FF0000"];
 // Expected output: { id: 101, role: 'React Developer', skills: [ 'JavaScript', 'React', 'CSS' ] }
 
 // Your code here:
+const { name, ...otherDetails } = userProfile;
+console.log(otherDetails); // Expected output: { id: 101, role: 'React Developer', skills: [ 'JavaScript', 'React', 'CSS' ] }
 
 // ==========================================
 // Q7: Rest Operator (...) in Functions
@@ -102,3 +129,7 @@ const themeColors = ["#FFFFFF", "#000000", "#FF0000"];
 // Expected output: [ 'React', 'Node', 'MongoDB' ]
 
 // Your code here:
+function logTechnologies(...techs) {
+  console.log(techs);
+}
+logTechnologies("React", "Node", "MongoDB"); // Expected output: [ 'React', 'Node', 'MongoDB' ]
