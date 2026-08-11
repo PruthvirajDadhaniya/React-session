@@ -17,6 +17,8 @@ const developers = [
 // Expected output: [ 'John', 'Asha', 'Ravi', 'Tara' ]
 
 // Your code here:
+const names = developers.map(dev => dev.name);
+console.log(names); // Expected output: [ 'John', 'Asha', 'Ravi', 'Tara' ]
 
 // ==========================================
 // Q2: filter (Keep specific items)
@@ -28,6 +30,8 @@ const developers = [
 // Step 3: Console log the result.
 //
 // Expected output: [ { id: 1... }, { id: 3... } ]
+const reactDevs = developers.filter(dev => dev.role === "React");
+console.log(reactDevs); // Expected output: [ { id: 1... }, { id: 3... } ]
 
 // Your code here:
 
@@ -45,6 +49,10 @@ const developers = [
 // Index: 1
 
 // Your code here:
+const inactiveDev = developers.find(dev => dev.active === false);
+const inactiveDevIndex = developers.findIndex(dev => dev.active === false);
+console.log(inactiveDev); // Expected output: { id: 2, name: 'Asha', role: 'Backend', tasks: 2, active: false }
+console.log("Index:", inactiveDevIndex); // Expected output: Index: 1
 
 // ==========================================
 // Q4: some & every (True/False checks)
@@ -59,6 +67,14 @@ const developers = [
 // All active? false
 
 // Your code here:
+const hasInactive = developers.some(dev => dev.active === false);
+const allActive = developers.every(dev => dev.active === true);
+console.log("Has inactive?", hasInactive);  
+// Expected output: Has inactive? true
+console.log("All active?", allActive);  
+// Expected output: All active? false 
+
+
 
 // ==========================================
 // Q5: reduce (Calculate a total)
@@ -72,6 +88,10 @@ const developers = [
 // Expected output: 19
 
 // Your code here:
+const totalTasks = developers.reduce((total, dev) => {
+  return total + dev.tasks;
+}, 0);
+console.log(totalTasks); // Expected output: 19
 
 // ==========================================
 // Q6: Chaining (filter + map)
@@ -85,6 +105,10 @@ const developers = [
 // Expected output: [ 'John', 'Ravi', 'Tara' ]
 
 // Your code here:
+const activeDevNames = developers
+  .filter(dev => dev.active)
+  .map(dev => dev.name);
+console.log(activeDevNames); // Expected output: [ 'John', 'Ravi', 'Tara' ] 
 
 // ==========================================
 // Q7: CRUD - Create (Add a new developer)
@@ -99,6 +123,9 @@ const developers = [
 // Expected output: An array with 5 developers.
 
 // Your code here:
+const newDev = { id: 5, name: "Pruthviraj", role: "Fullstack", tasks: 2, active: true };
+const newDevList = [...developers, newDev];
+console.log(newDevList); // Expected output: An array with 5 developers.
 
 // ==========================================
 // Q8: CRUD - Update (Edit an existing developer)
@@ -113,6 +140,13 @@ const developers = [
 // Expected output: Array where Asha (id 2) has active: true.
 
 // Your code here:
+const updatedDevList = developers.map(dev => {
+  if (dev.id === 2) {
+    return { ...dev, active: true };
+  }
+  return dev;
+});
+console.log(updatedDevList); // Expected output: Array where Asha (id 2) has active: true.
 
 // ==========================================
 // Q9: CRUD - Delete (Remove a developer)
@@ -126,3 +160,5 @@ const developers = [
 // Expected output: Array with only John, Asha, and Ravi (3 items).
 
 // Your code here:
+const filteredList = developers.filter(dev => dev.id !== 4);
+console.log(filteredList); // Expected output: Array with only John, Asha, and Ravi (3 items).

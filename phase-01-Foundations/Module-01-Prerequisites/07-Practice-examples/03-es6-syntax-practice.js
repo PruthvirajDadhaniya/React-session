@@ -12,10 +12,13 @@
 
 if (true) {
   // Your declarations here:
-  
+  var name1 = "John";
+  let name2 = "Ravi";
 }
 
 // Your console logs here:
+console.log(name1); // Expected output: "John"
+// console.log(name2); // Expected output: ReferenceError: name2 is not defined
 
 
 
@@ -33,6 +36,10 @@ if (true) {
 // Expected output: 10
 
 // Your code here:
+const addArrow = (a, b) => {
+  return a + b;
+}
+console.log(addArrow(5, 5)); // Expected output: 10
 
 
 
@@ -49,7 +56,8 @@ if (true) {
 // Expected output: 12
 
 // Your code here:
-
+const multiply = (a, b) => a * b;
+console.log(multiply(4, 3)); // Expected output: 12
 
 
 // ==========================================
@@ -67,8 +75,12 @@ if (true) {
 // "Guest"
 
 // Your code here:
-
-
+function greetUser(name = "Guest") {
+  return name;
+}
+console.log(greetUser("John")); // Expected output: "John"
+console.log(greetUser()); // Expected output: "Guest"
+  
 
 // ==========================================
 // Q5: Template Literals (String Interpolation)
@@ -84,6 +96,10 @@ if (true) {
 // Expected output: "John is a React Developer."
 
 // Your code here:
+let tech = "React";
+let role = "Developer";
+let sentence = `John is a ${tech} ${role}.`;
+console.log(sentence); // Expected output: "John is a React Developer."
 
 
 
@@ -102,3 +118,14 @@ if (true) {
 // Write your practice syntax below:
 
 // Your code here:
+// File 1: mathUtils.js
+const calculateTax = () => {
+  console.log("Calculating tax...");
+}
+export { calculateTax };
+
+
+// File 2: app.js
+import { calculateTax } from "./mathUtils.js";
+
+calculateTax(); // Expected output: "Calculating tax..."
